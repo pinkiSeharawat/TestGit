@@ -11,6 +11,19 @@ import com.util.MyDButil;
 
 public class NewPersonalInfoDBAccess {
 
+    public static int delete(int id){  
+        int status=0;  
+        try{  
+            Connection con=MyDButil.getConnection();  
+            PreparedStatement ps=con.prepareStatement("delete from personalinfo where id=?");  
+            ps.setInt(1,id);  
+            status=ps.executeUpdate();  
+              
+            con.close();  
+        }catch(Exception e){e.printStackTrace();}  
+          
+        return status;  
+    } 
 	
 		public int checkByName(String name) throws SQLException
 		{
@@ -38,7 +51,7 @@ public class NewPersonalInfoDBAccess {
 		}
 
 		
-		public PersonalInfo getDetails(String name)
+		public PersonalInfo getDetailsByName(String name)
 		{
 			Connection con =MyDButil.getConnection();
 			PersonalInfo personal=new PersonalInfo();
@@ -71,7 +84,6 @@ public class NewPersonalInfoDBAccess {
 			 MyDButil.closeConnection(con);
 			return personal;
 			
-		
 			
 		}
 

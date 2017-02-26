@@ -37,6 +37,8 @@
 </table>
 
 <!-- <a href="final.jsp">Submit</a> -->
+<button value="delete"><a href="DeleteServlet" style=" color:white; text-align:center; text-decoration: none;">Delete</a></button>
+<button value="update"><a href="DeleteServlet.jsp" style=" color:white;  text-align:center; text-decoration: none;">Update</a></button>
 
 
 

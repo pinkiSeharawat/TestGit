@@ -46,7 +46,7 @@ public class UserDetailsByName extends HttpServlet {
 		
         NewPersonalInfoDBAccess personalInfoDB= new NewPersonalInfoDBAccess();
         PersonalInfo personalInf=new PersonalInfo();
-        personalInf=personalInfoDB.getDetails(name);
+        personalInf=personalInfoDB.getDetailsByName(name);
         
         session.setAttribute("personalInf", personalInf);
         response.sendRedirect("SearchByName.jsp");

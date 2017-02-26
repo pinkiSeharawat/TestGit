@@ -38,7 +38,7 @@ public class CheckByName extends HttpServlet {
 		String name=request.getParameter("userName");
 		
 		@SuppressWarnings("unchecked")
-		List<PersonalInfo> list=(List<PersonalInfo>) dbAccess.getDetails(name);
+		List<PersonalInfo> list=(List<PersonalInfo>) dbAccess.getDetailsByName(name);
 		
 		for(int i=0;i<list.size();i++)
 		{
