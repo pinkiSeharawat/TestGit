@@ -74,4 +74,24 @@
     <servlet-name>CheckId</servlet-name>
     <url-pattern>/CheckId</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckByName</display-name>
+    <servlet-name>CheckByName</servlet-name>
+    <servlet-class>com.service.CheckByName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckByName</servlet-name>
+    <url-pattern>/CheckByName</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserDetailsByName</display-name>
+    <servlet-name>UserDetailsByName</servlet-name>
+    <servlet-class>com.service.UserDetailsByName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDetailsByName</servlet-name>
+    <url-pattern>/UserDetailsByName</url-pattern>
+  </servlet-mapping>
 </web-app>
