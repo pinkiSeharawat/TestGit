@@ -1,0 +1,80 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.PersonalInfo;
+import com.util.MyDButil;
+
+public class NewPersonalInfoDBAccess {
+
+	
+		public int checkByName(String name) throws SQLException
+		{
+			
+		
+			Connection con=MyDButil.getConnection();
+			
+		    PreparedStatement statement=con.prepareStatement("select count(*) from personalinfo where userName=?");
+		    
+		    statement.setString(1, name);
+		    
+		    int count=0;
+		    
+		    ResultSet rs=statement.executeQuery();
+		    while (rs.next())
+		    {
+		    	count=Integer.parseInt(rs.getString(1));
+		    	//System.out.println(rs.getInt(0)+" "+rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getInt(3));
+		    }
+		   
+		    MyDButil.closeConnection(con);
+			
+			return count;
+			
+		}
+
+		
+		public PersonalInfo getDetails(String name)
+		{
+			Connection con =MyDButil.getConnection();
+			PersonalInfo personal=new PersonalInfo();
+			try {
+				PreparedStatement ps=con.prepareStatement("select * from PersonalInfo where userName=?");
+				ps.setString(1,name);
+			    ResultSet rs=ps.executeQuery();
+			    
+			    while(rs.next())
+			    {
+			    	
+			    personal.setCustomerEmailId(rs.getString(3));
+			    personal.setMobileNumber(rs.getString(4));
+			    personal.setAddress(rs.getString(5));
+			    personal.setModelNumber(rs.getString(6));
+			    personal.setSerialNumber(rs.getString(7));
+			    personal.setPurchaseDate(rs.getDate(8));
+			    personal.setWarrentyDate(rs.getDate(9));
+			    personal.setDamagePartName(rs.getString(10));
+			    personal.setNumberOfTimesRepaired(rs.getInt(11));
+			    personal.setAMC(rs.getDouble(12));
+			    personal.setTotalAmount(rs.getDouble(13));
+			    
+			    }
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			 MyDButil.closeConnection(con);
+			return personal;
+			
+		
+			
+		}
+
+	}
+
+
