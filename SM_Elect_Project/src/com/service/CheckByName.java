@@ -39,19 +39,19 @@ public class CheckByName extends HttpServlet {
 		
 		@SuppressWarnings("unchecked")
 		List<PersonalInfo> list=(List<PersonalInfo>) dbAccess.getDetailsByName(name);
-		  request.setAttribute("list", list);
-		    if(list.size()>0)
-		{
-			
 		
-					
+		request.setAttribute("list", list);
+		  
+		if(list.size()>0)
+		{
 					UserDetailsByName userDetail = new UserDetailsByName();
 					userDetail.doPost(request, response);
+		
 		}
 		else
-				{
-					response.sendRedirect("UserNotFound.jsp");
-				}
+		{
+				    response.sendRedirect("UserNotFound.jsp");
+		}
 			
 		}
 	}

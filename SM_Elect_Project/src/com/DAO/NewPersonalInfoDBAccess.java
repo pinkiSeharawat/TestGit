@@ -56,7 +56,7 @@ public class NewPersonalInfoDBAccess {
 			Connection con =MyDButil.getConnection();
 			PersonalInfo personal=new PersonalInfo();
 			try {
-				PreparedStatement ps=con.prepareStatement("select * from PersonalInfo where userName=?");
+				PreparedStatement ps=con.prepareStatement("select * from PersonalInfo where customerName=?");
 				ps.setString(1,name);
 			    ResultSet rs=ps.executeQuery();
 			    
