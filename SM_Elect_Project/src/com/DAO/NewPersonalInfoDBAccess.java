@@ -25,22 +25,22 @@ public class NewPersonalInfoDBAccess {
         return status;  
     } 
 	
-		public int checkByName(String name) throws SQLException
+		public String checkByName(String name) throws SQLException
 		{
 			
 		
 			Connection con=MyDButil.getConnection();
 			
-		    PreparedStatement statement=con.prepareStatement("select count(*) from personalinfo where userName=?");
+		    PreparedStatement statement=con.prepareStatement("select count(*) from personalinfo where customerName=?");
 		    
 		    statement.setString(1, name);
 		    
-		    int count=0;
+		    String count=null;
 		    
 		    ResultSet rs=statement.executeQuery();
 		    while (rs.next())
 		    {
-		    	count=Integer.parseInt(rs.getString(1));
+		    	count=rs.getString(1);
 		    	//System.out.println(rs.getInt(0)+" "+rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getInt(3));
 		    }
 		   
