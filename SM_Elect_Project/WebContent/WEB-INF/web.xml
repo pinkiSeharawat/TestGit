@@ -94,4 +94,24 @@
     <servlet-name>UserDetailsByName</servlet-name>
     <url-pattern>/UserDetailsByName</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>GetAllCustomer</display-name>
+    <servlet-name>GetAllCustomer</servlet-name>
+    <servlet-class>com.service.GetAllCustomer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllCustomer</servlet-name>
+    <url-pattern>/GetAllCustomer</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>DeleteServlet</display-name>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>com.service.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
