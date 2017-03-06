@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.PersonalInfo;
 import com.util.MyDButil;
@@ -86,6 +88,37 @@ public class NewPersonalInfoDBAccess {
 			
 			
 		}
+		
+		   public static List<PersonalInfo> getAllCustomer(){  
+			   
+			   Connection con =MyDButil.getConnection();
+		        List<PersonalInfo> list=new ArrayList<PersonalInfo>();  
+		        
+		          
+		        try{  
+		            PreparedStatement ps=con.prepareStatement("select * from PersonalInfo");  
+		            ResultSet rs=ps.executeQuery();  
+		            while(rs.next()){ 
+		            	PersonalInfo personal=new PersonalInfo();
+		            	
+		            	personal.setCustomerEmailId(rs.getString(3));
+		 			    personal.setMobileNumber(rs.getString(4));
+		 			    personal.setAddress(rs.getString(5));
+		 			    personal.setModelNumber(rs.getString(6));
+		 			    personal.setSerialNumber(rs.getString(7));
+		 			    personal.setPurchaseDate(rs.getDate(8));
+		 			    personal.setWarrentyDate(rs.getDate(9));
+		 			    personal.setDamagePartName(rs.getString(10));
+		 			    personal.setNumberOfTimesRepaired(rs.getInt(11));
+		 			    personal.setAMC(rs.getDouble(12));
+		 			    personal.setTotalAmount(rs.getDouble(13));
+		 			    
+		            }  
+		            con.close();  
+		        }catch(Exception e){e.printStackTrace();}  
+		          
+		        return list;  
+		    } 
 
 	}
 
